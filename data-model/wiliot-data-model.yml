@@ -1,0 +1,75 @@
+generated: '2026-07-21'
+method: derived
+source: wiliot-api SDK (platform.py, edge.py, manufacturing.py) operation/parameter analysis
+entities:
+  - name: Pixel
+    aka: [tag]
+    service: platform
+    description: Battery-free Wiliot IoT Pixel (Bluetooth sensor tag); the physical data source.
+  - name: Asset
+    service: platform
+    description: A tracked physical item; one or more Pixels are associated to it.
+  - name: Category
+    service: platform
+    description: Asset category defining asset type, SKU, and the events it emits.
+  - name: AssetType
+    service: platform
+    description: Classification of an asset (referenced by Category).
+  - name: Location
+    service: platform
+    description: A physical location containing zones and associations.
+  - name: Zone
+    service: platform
+    description: A sub-area within a Location.
+  - name: Event
+    service: platform
+    description: An event generated for an asset (sensing / generic events).
+  - name: Gateway
+    service: edge
+    description: An edge gateway device bridging Pixel/Bluetooth data to the Wiliot Cloud.
+  - name: Bridge
+    service: edge
+    description: A Wiliot bridge connected to a gateway, extending Pixel coverage.
+  - name: Survey
+    service: edge
+    description: A debug/coverage survey run across a set of bridges.
+  - name: Reel
+    service: manufacturing
+    description: A manufacturing reel identifier for produced Pixels/tags.
+  - name: PixelChangeRequest
+    service: manufacturing
+    description: A request to change pixel ownership (by range/list/file).
+  - name: ShipmentApprovalRequest
+    service: manufacturing
+    description: A shipment approval request keyed by external id prefix.
+relationships:
+  - from: Asset
+    to: Pixel
+    type: has_many
+    via: pixelId
+  - from: Asset
+    to: Category
+    type: belongs_to
+    via: categoryId
+  - from: Category
+    to: AssetType
+    type: belongs_to
+    via: assetTypeId
+  - from: Location
+    to: Zone
+    type: has_many
+    via: locationId
+  - from: Event
+    to: Asset
+    type: belongs_to
+    via: assetId
+  - from: Gateway
+    to: Bridge
+    type: has_many
+    via: gatewayId
+  - from: Survey
+    to: Bridge
+    type: has_many
+    via: bridges
+scoping:
+  detail: All Platform/Edge resources are scoped under an owner id (/v1/{service}/owner/{ownerId}/...).

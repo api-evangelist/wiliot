@@ -1,0 +1,52 @@
+generated: '2026-07-21'
+method: searched
+source: PyPI + npm registry (author "Wiliot", MIT)
+packages:
+  - language: python
+    registry: pypi
+    name: wiliot-api
+    url: https://pypi.org/project/wiliot-api/
+    install: pip install wiliot-api
+    version: 4.10.23
+    official: true
+    description: Python client for Wiliot's Cloud APIs (Platform/traceability, Edge, Manufacturing).
+  - language: python
+    registry: pypi
+    name: wiliot-core
+    url: https://pypi.org/project/wiliot-core/
+    install: pip install wiliot-core
+    version: 5.15.0
+    official: true
+    description: Wiliot core functions - local gateway communication and packet/payload handling.
+  - language: python
+    registry: pypi
+    name: wiliot-tools
+    url: https://pypi.org/project/wiliot-tools/
+    install: pip install wiliot-tools
+    version: 4.15.1
+    official: true
+    description: Wiliot tools library.
+  - language: python
+    registry: pypi
+    name: wiliot-testers
+    url: https://pypi.org/project/wiliot-testers/
+    install: pip install wiliot-testers
+    version: 5.14.5
+    official: true
+    description: Client for Wiliot's Testers app (manufacturing/verification).
+  - language: python
+    registry: pypi
+    name: wiliot-deployment-tools
+    url: https://pypi.org/project/wiliot-deployment-tools/
+    install: pip install wiliot-deployment-tools
+    version: 4.1.54
+    official: true
+    description: Client for Wiliot's Deployment Tools.
+  - language: javascript
+    registry: npm
+    name: wiliot-sdk-rn
+    url: https://www.npmjs.com/package/wiliot-sdk-rn
+    install: npm install wiliot-sdk-rn
+    version: 1.1.0
+    official: true
+    description: Wiliot SDK for React Native - BLE scanning, MQTT, edge/gateway integration.

@@ -1,0 +1,32 @@
+# Wiliot
+
+> Wiliot operates an ambient IoT platform built on battery-free "IoT Pixels" (postage-stamp-sized Bluetooth sensor tags) and a cloud that turns physical items into a continuous, real-time data source for supply-chain visibility ("Physical AI"). The Cloud APIs expose three surfaces — Platform (traceability: pixels, assets, categories, locations, zones, events), Edge (gateways, bridges, surveys), and Manufacturing (pixel ownership, reels, serialization, sensor data).
+
+## Overview
+- Company: Wiliot (https://www.wiliot.com)
+- Developer portal: https://developer.wiliot.com/
+- Platform console: https://platform.wiliot.com/
+- Auth: API key or username/password exchanged at /v1/auth/token/api (or /v1/auth/token) for a JWT bearer token; send Authorization: Bearer <jwt> on all calls.
+- Base host: https://api.wiliot.com/v1/ (production alias of api.{region}.{env}.wiliot.cloud)
+- Versioning: URI path (/v1/...); resources scoped per owner (/v1/{service}/owner/{ownerId}/...)
+
+## APIs
+- Platform (Traceability) API: https://api.wiliot.com/v1/traceability/ — pixels, assets, categories, asset types, locations, zones, events, metadata.
+- Edge API: https://api.wiliot.com/v1/ — gateways, bridges, surveys, verification.
+- Manufacturing API: https://api.wiliot.com/v1/manufacturing/ — pixel ownership changes, reels, serialization, shipment approval, sensor/tester data.
+
+## SDKs
+- wiliot-api (Python): https://pypi.org/project/wiliot-api/
+- wiliot-core (Python): https://pypi.org/project/wiliot-core/
+- wiliot-tools (Python): https://pypi.org/project/wiliot-tools/
+- wiliot-testers (Python): https://pypi.org/project/wiliot-testers/
+- wiliot-deployment-tools (Python): https://pypi.org/project/wiliot-deployment-tools/
+- wiliot-sdk-rn (React Native / JS): https://www.npmjs.com/package/wiliot-sdk-rn
+
+## Docs
+- Developer portal: https://developer.wiliot.com/
+- Blog: https://www.wiliot.com/blog
+- Terms of Use: https://www.wiliot.com/site-terms-conditions
+- Privacy Policy: https://www.wiliot.com/privacy-policy
+- Contact / demo: https://www.wiliot.com/contact
+- GitHub: https://github.com/wiliot

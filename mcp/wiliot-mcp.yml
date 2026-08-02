@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: wiliot-api SDK operations (no official hosted MCP server found)
+server:
+  name: wiliot
+  transport: http
+  note: >-
+    No official Wiliot MCP server was found on npm (@modelcontextprotocol),
+    the MCP registry, or Wiliot docs as of 2026-07-21. Wiliot ships an in-app
+    GenAI assistant ("Wilibot"/"Aether") in the Platform, but no external MCP
+    server. Tools below are candidates derived from the wiliot-api SDK surface.
+tools:
+  - name: list_pixels
+    description: List Pixels (tags) for the owner, cursor-paginated.
+    source_operation: wiliot-api#Platform.get_pixels
+  - name: get_asset
+    description: Retrieve an asset by id.
+    source_operation: wiliot-api#Platform.get_asset
+  - name: create_asset
+    description: Create an asset.
+    source_operation: wiliot-api#Platform.create_asset
+  - name: associate_pixel_to_asset
+    description: Associate a Pixel to an asset.
+    source_operation: wiliot-api#Platform.associate_pixel_to_asset
+  - name: list_categories
+    description: List asset categories.
+    source_operation: wiliot-api#Platform.get_categories
+  - name: list_locations
+    description: List locations.
+    source_operation: wiliot-api#Platform.get_locations
+  - name: get_event_count
+    description: Get event count for a connection between two timestamps.
+    source_operation: wiliot-api#Platform.get_event_count
+  - name: list_gateways
+    description: List edge gateways.
+    source_operation: wiliot-api#Edge.get_gateways
+  - name: list_bridges
+    description: List edge bridges.
+    source_operation: wiliot-api#Edge.get_bridges
+  - name: start_survey
+    description: Start a coverage/debug survey across bridges.
+    source_operation: wiliot-api#Edge.start_survey
+  - name: change_pixel_owner
+    description: Change pixel ownership by range/list/file (manufacturing).
+    source_operation: wiliot-api#Manufacturing.change_pixel_owner_by_range
+  - name: resolve_payload
+    description: Resolve a Pixel payload to its tag id (manufacturing).
+    source_operation: wiliot-api#Manufacturing.resolve_payload

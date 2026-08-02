@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/wiliot-api/ (wiliot-api SDK release notes)
+scope: sdk
+note: >-
+  Wiliot does not publish a public dated API changelog; the closest public,
+  dated record of API changes is the wiliot-api SDK release notes on PyPI,
+  which track new/changed cloud API endpoints. Captured here as the recent window.
+scheme: semver
+current_version: 4.10.23
+entries:
+  - version: 4.10.23
+    breaking: false
+    highlights:
+      - Corrected Python 3.10 runtime pins (pyjwt, requests, setuptools_scm, sgqlc).
+  - version: 4.10.22
+    breaking: false
+    highlights:
+      - Added optional keys_values argument to create_asset to associate key:value pairs with an asset.
+  - version: 4.10.21
+    breaking: false
+    highlights:
+      - Added share_asset to share assets with another account.
+      - Added resolve_payload_list (resolve up to 500 payloads in one call) to the Manufacturing client.
+      - Added more tester types for the Manufacturing client.
+  - version: 4.10.20
+    breaking: false
+    highlights:
+      - Added get batch name API for manufacturing.
+  - version: 4.10.19
+    breaking: false
+    highlights:
+      - Updated update_asset to comply with API changes (can now only update an asset's category).
+  - version: 4.10.17
+    breaking: false
+    highlights:
+      - Added a module for interacting with configurable sensing events.
+      - get_asset() updated ahead of a future deprecation.
+      - Added future-deprecation warnings for associate_pixel_to_asset() / disassociate_pixel_from_asset().

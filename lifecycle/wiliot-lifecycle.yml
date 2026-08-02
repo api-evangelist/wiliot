@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: wiliot-api SDK + live probes
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: API version is a path segment (/v1/...); SDK supports per-call version override.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No public deprecation/Sunset (RFC 8594) policy was found.
+sla:
+  url: null
+  detail: No public SLA/uptime target found.
+status_page:
+  url: https://wiliot.statuspage.io/
+  public: false
+  detail: >-
+    A Wiliot Atlassian Statuspage exists but is currently private/inactive
+    ("can only be viewed by team members"), so it is not a public status page.
+deprecated_operations: []

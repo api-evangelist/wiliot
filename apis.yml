@@ -1,23 +1,73 @@
 aid: wiliot
 name: Wiliot
-description: 'Wiliot is a company surfaced as a portfolio company of norwest-venture-partners, softbank-vision-fund
-  and added to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a
-  lead awaiting the enrichment pipeline.'
+description: >-
+  Wiliot operates an ambient IoT platform built on battery-free "IoT Pixels" -
+  postage-stamp-sized Bluetooth sensor tags - and a cloud that turns everyday
+  physical items into a continuous, real-time data source for supply-chain
+  visibility ("Physical AI"). Wiliot's Cloud APIs expose three surfaces: a
+  Platform (traceability) API for pixels, assets, categories, locations, zones
+  and events; an Edge API for gateways, bridges and coverage surveys; and a
+  Manufacturing API for pixel ownership, reels, serialization and sensor/tester
+  data. Access uses an API key (or username/password) exchanged for a JWT bearer
+  token, over a versioned REST surface scoped per owner. Official Python SDKs
+  (wiliot-api, wiliot-core, and others) plus a React Native SDK are published.
 url: https://raw.githubusercontent.com/api-evangelist/wiliot/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - norwest-venture-partners
 - softbank-vision-fund
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-sdk-and-live-probe
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://platform.wiliot.com/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-- Unknown
-apis: []
+- Internet of Things
+- Ambient IoT
+- Supply Chain
+- Asset Tracking
+- Traceability
+- Bluetooth
+- Sensors
+- RFID
+apis:
+- name: Wiliot Platform (Traceability) API
+  description: >-
+    Manage traceability entities - Pixels (tags), assets, categories, asset
+    types, locations, zones, metadata and events - scoped per owner.
+  humanURL: https://developer.wiliot.com/
+  baseURL: https://api.wiliot.com/v1/traceability
+  properties:
+  - type: Authentication
+    url: authentication/wiliot-authentication.yml
+- name: Wiliot Edge API
+  description: >-
+    Manage edge infrastructure - gateways, bridges, verification bridges and
+    debug/coverage surveys.
+  humanURL: https://developer.wiliot.com/
+  baseURL: https://api.wiliot.com/v1
+- name: Wiliot Manufacturing API
+  description: >-
+    Manufacturing operations - pixel ownership changes, reels, tag
+    serialization, shipment approval, payload parse/resolve and sensor/tester
+    data upload.
+  humanURL: https://developer.wiliot.com/
+  baseURL: https://api.wiliot.com/v1/manufacturing
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +76,46 @@ maintainers:
 common:
 - type: Website
   url: https://wiliot.com
+- type: DeveloperPortal
+  url: https://developer.wiliot.com/
+- type: Documentation
+  url: https://developer.wiliot.com/
+- type: Login
+  url: https://platform.wiliot.com/
+- type: Blog
+  url: https://www.wiliot.com/blog
+- type: Support
+  url: https://www.wiliot.com/contact
+- type: GitHubOrganization
+  url: https://github.com/wiliot
+- type: TermsOfService
+  url: https://www.wiliot.com/site-terms-conditions
+- type: PrivacyPolicy
+  url: https://www.wiliot.com/privacy-policy
+- type: Authentication
+  url: authentication/wiliot-authentication.yml
+- type: Conventions
+  url: conventions/wiliot-conventions.yml
+- type: DataModel
+  url: data-model/wiliot-data-model.yml
+- type: MCPServer
+  url: mcp/wiliot-mcp.yml
+- type: LLMsTxt
+  url: llms/wiliot-llms.txt
+- type: Conformance
+  url: conformance/wiliot-conformance.yml
+- type: Lifecycle
+  url: lifecycle/wiliot-lifecycle.yml
+- type: ChangeLog
+  url: changelog/wiliot-changelog.yml
+- type: DomainSecurity
+  url: security/wiliot-domain-security.yml
+- type: Packages
+  url: packages/wiliot-packages.yml
+- type: SDKs
+  url: packages/wiliot-packages.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

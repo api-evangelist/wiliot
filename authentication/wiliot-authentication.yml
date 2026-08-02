@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: wiliot-api SDK (security/security.py, api_client.py) + live probe of https://api.wiliot.com/v1/
+docs: https://developer.wiliot.com/
+summary:
+  types: [apiKey, oauth2]
+  api_key_in: [header]
+  oauth2_flows: [password]
+  token_type: bearer-jwt
+  notes: >-
+    Wiliot uses a two-step model: a long-lived credential (API key OR OAuth
+    username/password) is exchanged for a short-lived JWT bearer access token,
+    which is then sent as Authorization on every API call. The SDK auto-refreshes
+    the token when it is within a minute of expiry.
+schemes:
+  - name: ApiKeyExchange
+    type: apiKey
+    in: header
+    parameter: Authorization
+    token_endpoint: https://api.wiliot.com/v1/auth/token/api
+    method: POST
+    description: >-
+      POST the API key as the Authorization header to /v1/auth/token/api to
+      receive a JWT access token. Obtain the API key from the Wiliot Platform
+      account/management console.
+    sources: [wiliot-api SDK security.py]
+  - name: OAuth2Password
+    type: oauth2
+    flow: password
+    token_endpoint: https://api.wiliot.com/v1/auth/token
+    description: >-
+      POST username and password to /v1/auth/token to receive a JWT access
+      token (used by the Management/Platform user credentials path).
+    sources: [wiliot-api SDK security.py]
+  - name: BearerJWT
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+    description: >-
+      All resource calls (Platform/traceability, Edge, Manufacturing) send the
+      exchanged access token as Authorization: Bearer <jwt>. Verified live:
+      https://api.wiliot.com/v1/traceability/owner/{ownerId}/asset returns 401
+      without a valid bearer token.
+    sources: [live probe]

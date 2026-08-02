@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: derived
+source: wiliot-api SDK auth + API behavior analysis
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: Token endpoint accepts an OAuth2 password grant (/v1/auth/token) issuing bearer tokens.
+  - id: bearer-jwt
+    conforms: true
+    evidence: Access tokens are JWTs (pyjwt decode for exp) sent as Authorization bearer.
+  - id: apikey-auth
+    conforms: true
+    evidence: API key exchanged at /v1/auth/token/api for an access token.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors return a plain JSON message envelope, not application/problem+json.
+  - id: cursor-pagination
+    conforms: true
+    evidence: List endpoints use limit + next cursor parameters.
+  - id: rest-json
+    conforms: true
+    evidence: JSON request/response over HTTPS with standard verbs (GET/POST/PUT/PATCH/DELETE).

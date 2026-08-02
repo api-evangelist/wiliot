@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: wiliot-api SDK (api_client.py, platform.py, edge.py, manufacturing.py) + live probe
+authentication:
+  style: bearer-jwt-via-key-exchange
+  header: Authorization
+  detail: See authentication/wiliot-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: API version is a path segment (/v1/...); the SDK exposes api_version and supports per-call override_api_version.
+routing:
+  scheme: region-host
+  default_host: https://api.us-east-2.prod.wiliot.cloud/
+  alias_host: https://api.wiliot.com/
+  detail: >-
+    Base host is region/env templated as api.{region}.{env}.wiliot.cloud;
+    api.wiliot.com is the production alias. Resource paths are scoped per owner:
+    /v1/{service}/owner/{ownerId}/...
+pagination:
+  style: cursor
+  request_params: [limit, next]
+  response_fields: [data, next]
+  detail: >-
+    List endpoints (e.g. get_pixels) accept a limit and a next cursor; the
+    response carries the page data plus a next cursor token to fetch the
+    following page.
+idempotency:
+  supported: false
+  detail: No idempotency-key header/parameter is documented in the SDK or observed on the API.
+tracing:
+  request_header: X-Initiator-Name
+  detail: Optional caller-identity header (alphanumeric, <=40 chars) set via initiator_name.
+error_envelope:
+  shape: json-object
+  fields: [data, message]
+  detail: >-
+    Errors surface as JSON with a message field; the SDK wraps non-2xx into
+    WiliotCloudError. No RFC 9457 problem+json was observed.
+rate_limiting:
+  detail: Not publicly documented; the SDK retries on connection errors (max 3).
+cross_links:
+  authentication: authentication/wiliot-authentication.yml
+  data_model: data-model/wiliot-data-model.yml
