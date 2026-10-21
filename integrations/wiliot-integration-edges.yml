@@ -1,0 +1,24 @@
+generated: '2026-10-21'
+method: searched
+checked:
+- cisco/integrations/cisco-integration-edges.yml
+source:
+- cisco/integrations/cisco-integration-edges.yml
+edges:
+- partner_name: Cisco (own)
+  partner: cisco
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.cisco.com/en-US/apps/407769
+  mirror_of: cisco/integrations/cisco-integration-edges.yml
+  apps:
+  - Wiliot
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: Physical Asset Tracking
